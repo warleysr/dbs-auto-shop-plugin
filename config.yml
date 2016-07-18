@@ -1,0 +1,26 @@
+# Tempo em MINUTOS para checar se ha algo pendente ou se algo estornou
+tempo-checar: 5
+
+# Conexao ao banco de dados
+MySQL:
+  host: localhost
+  user: root
+  pass: 
+  db: test
+
+# Comandos para executar quando algum pagamento estornar
+comandos-chargeback:
+- ban @player 0 Chargeback
+- banip @player Chargeback
+- say @player realizou Chargeback e foi banido permanentemente.
+
+# Mensagem para quando tiver produtos para ativar, porem estar com o inventário cheio (caso necessite estar vazio)
+msg-inv: '&a** &cVoce possui produtos para ativar, porem deve estar com o inventario vazio. Esvazie-o e aguarde os proximos 5 minutos. &a**'
+
+# Produtos (por codigo)
+1:
+  # Se é necessário estar com o inventário vazio para ativar
+  empty-inventory: true
+  # Comandos para executar ao ativar o produto
+  commands:
+  - darvip @player vip1 30
